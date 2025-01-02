@@ -1,0 +1,128 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Pequeno Quiz</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+            background-color: #8BC34A; /* Cor de fundo verde */
+        }
+        .quiz-container {
+            background: #fff;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+            text-align: center;
+        }
+        .question {
+            margin-bottom: 20px;
+        }
+        .options, .buttons {
+            display: flex;
+            justify-content: center;
+        }
+        .button {
+            margin: 0 10px;
+            padding: 10px 20px;
+            background-color: #007BFF;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            cursor: pointer;
+        }
+        .button:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+
+<div class="quiz-container">
+    <div class="question" id="question-1">Qual é a capital do Brasil?</div>
+    <div class="options" id="options-1">
+        <button class="button" onclick="nextQuestion(2)">Brasília</button>
+        <button class="button" onclick="nextQuestion(2)">Rio de Janeiro</button>
+        <button class="button" onclick="nextQuestion(2)">São Paulo</button>
+        <button class="button" onclick="nextQuestion(2)">Salvador</button>
+    </div>
+
+    <div class="question" id="question-2" style="display: none;">Qual é a maior floresta tropical do mundo?</div>
+    <div class="options" id="options-2" style="display: none;">
+        <button class="button" onclick="nextQuestion(3)">Amazônia</button>
+        <button class="button" onclick="nextQuestion(3)">Congo</button>
+        <button class="button" onclick="nextQuestion(3)">Daintree</button>
+        <button class="button" onclick="nextQuestion(3)">Sundarbans</button>
+    </div>
+
+    <div class="question" id="question-3" style="display: none;">Qual é o maior oceano da Terra?</div>
+    <div class="options" id="options-3" style="display: none;">
+        <button class="button" onclick="nextQuestion(4)">Pacífico</button>
+        <button class="button" onclick="nextQuestion(4)">Atlântico</button>
+        <button class="button" onclick="nextQuestion(4)">Índico</button>
+        <button class="button" onclick="nextQuestion(4)">Ártico</button>
+    </div>
+
+    <div class="question" id="question-4" style="display: none;">Quem pintou a Mona Lisa?</div>
+    <div class="options" id="options-4" style="display: none;">
+        <button class="button" onclick="nextQuestion(5)">Leonardo da Vinci</button>
+        <button class="button" onclick="nextQuestion(5)">Vincent Van Gogh</button>
+        <button class="button" onclick="nextQuestion(5)">Pablo Picasso</button>
+        <button class="button" onclick="nextQuestion(5)">Claude Monet</button>
+    </div>
+
+    <div class="question" id="question-5" style="display: none;">Qual é o planeta mais próximo do Sol?</div>
+    <div class="options" id="options-5" style="display: none;">
+        <button class="button" onclick="nextQuestion(6)">Mercúrio</button>
+        <button class="button" onclick="nextQuestion(6)">Vênus</button>
+        <button class="button" onclick="nextQuestion(6)">Terra</button>
+        <button class="button" onclick="nextQuestion(6)">Marte</button>
+    </div>
+
+    <div class="question" id="question-6" style="display: none;">Qual é a maior cadeia de montanhas do mundo?</div>
+    <div class="options" id="options-6" style="display: none;">
+        <button class="button" onclick="showFinalQuestion()">Himalaia</button>
+        <button class="button" onclick="showFinalQuestion()">Andes</button>
+        <button class="button" onclick="showFinalQuestion()">Rocky Mountains</button>
+        <button class="button" onclick="showFinalQuestion()">Alpes</button>
+    </div>
+
+    <div class="question" id="final-question" style="display: none;">Você aceita namorar comigo?</div>
+    <div class="buttons" id="final-buttons" style="display: none;">
+        <button class="button" onclick="showPopup(true)">Sim</button>
+        <button class="button" onclick="showPopup(false)">Não</button>
+    </div>
+</div>
+
+<script>
+    function nextQuestion(questionNumber) {
+        document.getElementById('question-' + (questionNumber - 1)).style.display = 'none';
+        document.getElementById('options-' + (questionNumber - 1)).style.display = 'none';
+        document.getElementById('question-' + questionNumber).style.display = 'block';
+        document.getElementById('options-' + questionNumber).style.display = 'flex';
+    }
+
+    function showFinalQuestion() {
+        document.getElementById('question-6').style.display = 'none';
+        document.getElementById('options-6').style.display = 'none';
+        document.getElementById('final-question').style.display = 'block';
+        document.getElementById('final-buttons').style.display = 'flex';
+    }
+
+    function showPopup(isYes) {
+        if (isYes) {
+            alert('Ponha a mão no meu bolso esquerdo e pegue o que tem nele');
+        } else {
+            alert('Que pena! Fico triste com sua resposta.');
+        }
+    }
+</script>
+
+</body>
+</html>
